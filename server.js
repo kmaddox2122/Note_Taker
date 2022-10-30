@@ -23,8 +23,6 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
-//* `GET /api/notes` should read the `db.json` file and return all saved notes as JSON.
-// GET request for api notes
 app.get('/api/notes', (req, res) => {
 
 // obtain existing notes
@@ -38,6 +36,8 @@ fs.readFile('./db/db.json', 'utf8', (err, data) => {
   }
 });
 });
+
+
 // POST request to add a note
 app.post('/api/notes', (req, res) => {
   // Log that a POST request was received
@@ -78,6 +78,7 @@ app.post('/api/notes', (req, res) => {
   };
 });
 
+
 // DELETE request for api notes
 app.delete('/api/notes/:id', (req, res) => {
 
@@ -92,7 +93,7 @@ app.delete('/api/notes/:id', (req, res) => {
       let newNoteArray = parsedNotes.filter((note) => note.id !== req.params.id);
       res.json(newNoteArray);
       //console.log(newNoteArray); 
-      fs.writeFileSync('./db/db.json', json.stringify(newNoteArray));
+      fs.writeFileSync('./db/db.json', JSON.stringify(newNoteArray));
     }
   });
   });
