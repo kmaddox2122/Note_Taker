@@ -7,5 +7,15 @@
         "title": "note",
         "text": "hi",
         "id": "7fe4"
+    },
+    {
+        "title": "Note title here",
+        "text": "Note text here",
+        "id": "9dbe"
+    },
+    {
+        "title": "Chloe",
+        "text": "Chloe is awake!",
+        "id": "baaca377-b484-4691-954d-cd136a0bc842"
     }
 ]
