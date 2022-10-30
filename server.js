@@ -88,10 +88,11 @@ app.delete('/api/notes/:id', (req, res) => {
     } else {
       // Convert string into JSON object
       const parsedNotes = JSON.parse(data);
-      res.json(parsedNotes);
-    // if ()
-    //   res.json({msg: "Note Deleted"})
-    //   parsedNotes.filter
+      //res.json(parsedNotes);
+      let newNoteArray = parsedNotes.filter((note) => note.id !== req.params.id);
+      res.json(newNoteArray);
+      //console.log(newNoteArray); 
+      fs.writeFileSync('./db/db.json', json.stringify(newNoteArray));
     }
   });
   });
